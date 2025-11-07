@@ -1,0 +1,8 @@
+# Core dependencies
+mesa>=2.1.0
+matplotlib>=3.7.0
+numpy>=1.24.0
+
+# Optional dependencies for advanced features
+pillow>=10.0.0  # For saving animations as GIF
+pandas>=2.0.0   # For data analysis (used by Mesa DataCollector)
