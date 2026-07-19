@@ -226,18 +226,6 @@ The system tracks:
 - Rescue rate per step
 - Drone utilization
 
-## 🤝 Contributing
-
-This project was built for a hackathon demonstration. Feel free to:
-- Add new features
-- Improve algorithms
-- Enhance visualization
-- Optimize performance
-
-## 📄 License
-
-MIT License - Feel free to use for educational and demonstration purposes.
-
 ## 🙏 Acknowledgments
 
 - Built with [Mesa](https://mesa.readthedocs.io/) - Agent-based modeling framework
