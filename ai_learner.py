@@ -4,7 +4,7 @@ import random
 from collections import deque
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.optimizers import Adam
 from entities import DroneState
 
@@ -27,7 +27,10 @@ class QLearningAgent:
         """Membangun model neural network untuk Q-learning"""
         model = Sequential()
         # Simplified model for faster training
-        model.add(Dense(16, input_dim=self.state_size, activation='relu'))
+        # Keras 3: `Dense(..., input_dim=...)` sudah deprecated (cuma warning,
+        # tapi disarankan pakai Input(shape=...) eksplisit sebagai layer pertama)
+        model.add(Input(shape=(self.state_size,)))
+        model.add(Dense(16, activation='relu'))
         model.add(Dense(16, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
         model.compile(

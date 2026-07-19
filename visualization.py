@@ -57,7 +57,7 @@ class SwarmRescueVisualization:
         self.ax_grid.set_xlim(-1, self.model.width)
         self.ax_grid.set_ylim(-1, self.model.height)
         self.ax_grid.set_aspect('equal')
-        self.ax_grid.set_title(f'Swarm Rescue Simulation - Step {self.model.schedule.steps}', 
+        self.ax_grid.set_title(f'Swarm Rescue Simulation - Step {self.model.steps}', 
                                fontsize=16, fontweight='bold')
         self.ax_grid.set_xlabel('X Position')
         self.ax_grid.set_ylabel('Y Position')
@@ -166,7 +166,7 @@ class SwarmRescueVisualization:
 ║      MISSION STATISTICS      ║
 ╚══════════════════════════════╝
 
-⏱️  Step: {self.model.schedule.steps}
+⏱️  Step: {self.model.steps}
 
 👥 SURVIVORS
    • Total: {total_survivors}
@@ -189,7 +189,7 @@ class SwarmRescueVisualization:
    • Returning: {returning}
 
 🎯 EFFICIENCY
-   • Rescue Rate: {rescued_survivors/max(1, self.model.schedule.steps):.3f}/step
+   • Rescue Rate: {rescued_survivors/max(1, self.model.steps):.3f}/step
    • Coverage: {len(self.model.shared_map)}/{total_survivors} found
         """
         

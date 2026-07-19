@@ -36,19 +36,19 @@ def run_experiment(num_drones, num_survivors, num_runs=5, max_steps=500):
                 break
         
         # Collect results
-        total_survivors = sum(1 for a in model.schedule.agents if hasattr(a, 'is_rescued'))
-        rescued_survivors = sum(1 for a in model.schedule.agents 
+        total_survivors = sum(1 for a in model.agents if hasattr(a, 'is_rescued'))
+        rescued_survivors = sum(1 for a in model.agents 
                                if hasattr(a, 'is_rescued') and a.is_rescued)
         
         results.append({
             'num_drones': num_drones,
             'num_survivors': num_survivors,
             'run': run,
-            'steps_taken': model.schedule.steps,
+            'steps_taken': model.steps,
             'survivors_rescued': rescued_survivors,
             'survivors_found': len(model.shared_map),
             'rescue_rate': rescued_survivors / total_survivors,
-            'efficiency': rescued_survivors / model.schedule.steps if model.schedule.steps > 0 else 0
+            'efficiency': rescued_survivors / model.steps if model.steps > 0 else 0
         })
     
     return results

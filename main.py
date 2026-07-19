@@ -121,16 +121,16 @@ Examples:
     print("📊 FINAL STATISTICS")
     print("=" * 70)
     
-    total_survivors = sum(1 for a in model.schedule.agents 
+    total_survivors = sum(1 for a in model.agents 
                          if hasattr(a, 'is_rescued'))
-    rescued_survivors = sum(1 for a in model.schedule.agents 
+    rescued_survivors = sum(1 for a in model.agents 
                            if hasattr(a, 'is_rescued') and a.is_rescued)
     
-    print(f"⏱️  Total Steps: {model.schedule.steps}")
+    print(f"⏱️  Total Steps: {model.steps}")
     print(f"👥 Survivors Rescued: {rescued_survivors}/{total_survivors} ({rescued_survivors/total_survivors*100:.1f}%)")
     print(f"🔍 Survivors Found: {len(model.shared_map)}/{total_survivors}")
     
-    active_drones = sum(1 for a in model.schedule.agents 
+    active_drones = sum(1 for a in model.agents 
                        if hasattr(a, 'battery') and a.battery > 0)
     print(f"🚁 Active Drones: {active_drones}/{args.drones}")
     
