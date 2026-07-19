@@ -1,8 +1,19 @@
-# Core dependencies
-mesa>=2.1.0
-matplotlib>=3.7.0
-numpy>=1.24.0
+# Core dependencies — jalur utama (main.py -> model.py -> agent.py -> visualization.py -> analyze.py)
+# Ditulis untuk Mesa 3.5.x (rilis stabil terbaru saat ini). Mesa 3.0+ mengubah
+# API besar-besaran (unique_id auto-assign, tidak ada lagi mesa.time / scheduler
+# class, AgentSet lewat model.agents). Kode di project ini sudah dimigrasi
+# mengikuti Mesa Migration Guide resmi: https://mesa.readthedocs.io/stable/migration_guide.html
+mesa>=3.5,<4.0
+matplotlib>=3.8.0
+numpy>=1.26.0
+pillow>=10.2.0   # Untuk menyimpan animasi sebagai GIF
+pandas>=2.2.0    # Dipakai oleh Mesa DataCollector
 
-# Optional dependencies for advanced features
-pillow>=10.0.0  # For saving animations as GIF
-pandas>=2.0.0   # For data analysis (used by Mesa DataCollector)
+# ------------------------------------------------------------------
+# Opsional — hanya dibutuhkan kalau kamu juga menjalankan prototipe
+# kedua yang terpisah (Pygame + TensorFlow Q-learning): simulation_2d.py,
+# entities.py, ai_controller.py, ai_learner.py, data_collector.py.
+# main.py TIDAK butuh ini.
+# ------------------------------------------------------------------
+# pygame>=2.5.0
+# tensorflow>=2.16.0   # Keras 3 di bundel otomatis mulai versi ini
